@@ -27,9 +27,7 @@ const OfferItem = ({ offer }: OfferItemProps) => {
 
           <div className="availability-date-section">
             <div>
-              Disponible le
-              <span> {offer.availabilityDate?.toLocaleDateString()} </span>
-              au
+              Disponible jusqu'au
               <span> {offer.expirationDate?.toLocaleDateString()} </span>
             </div>
           </div>
