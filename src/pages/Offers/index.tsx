@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import OffersService from "../../services/OffersService";
 import { Offer } from "../../services/models/offer/Offer";
 import OfferList from "./OfferList";
+import { DropDown } from "../../components";
 
 const Offers = () => {
   const [offers, setOffers] = useState<Offer[]>([]);
@@ -12,7 +13,7 @@ const Offers = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  const getAllOffers = useCallback(() => {
     OffersService.getAllOffers({
       pageNumber,
       pageSize,
@@ -24,11 +25,54 @@ const Offers = () => {
     });
   }, []);
 
+  useEffect(() => {
+    getAllOffers();
+  }, []);
+
+  useEffect(() => {
+    if (isLoading) return;
+    setIsLoading(true);
+    getAllOffers();
+  }, [sortBy]);
+
   if (isLoading) {
     return <div>Chargement en cours...</div>;
   }
 
-  return <div>{offers && <OfferList offers={offers} />}</div>;
+  return (
+    <div>
+      {offers && (
+        <>
+          <div>
+            <div>Filtrer par :</div>
+            <DropDown
+              disabled={isLoading}
+              className=".sort-by-filter"
+              value={sortBy}
+              onChange={(e) => {
+                setSortBy(e.target.value);
+              }}
+              items={[
+                {
+                  label: "title",
+                  value: "title",
+                },
+                {
+                  label: "offer id",
+                  value: "offerId",
+                },
+                {
+                  label: "expirationDate",
+                  value: "expirationDate",
+                },
+              ]}
+            />
+          </div>
+          <OfferList offers={offers} />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Offers;
