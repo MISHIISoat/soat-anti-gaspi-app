@@ -1,0 +1,58 @@
+.page-number-size {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-page-number {
+    display: flex;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+}
+
+.label-page-number input {
+    width: min-content;
+    margin: 1rem;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.previous-button {
+    background-color: #9932CC;
+}
+.previous-button::after {
+    background-color: #8633af;
+}
+.previous-button:hover::after {
+    background-color: #ad35e991;
+}
+
+.previous-button::after:disabled {
+    background-color: #ad35e930;
+}
+
+.previous-button:disabled {
+    background-color: #ad35e930;
+}
+
+.next-button::after:disabled {
+    background-color: lightblue;
+}
+*:disabled {
+    background-color: grey;
+}
+*:disabled::after {
+    background-color: grey;
+}
+
+*:disabled:hover {
+    background-color: grey;
+}
+*:disabled:hover::after {
+    background-color: grey;
+}

@@ -1,0 +1,10 @@
+.sort-by-filter {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+}
+
+.sort-by-filter .drop-down {
+    width: min-content;
+    margin-left: 1rem;
+}
