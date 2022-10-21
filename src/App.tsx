@@ -4,6 +4,9 @@ import CreateOffer from "./pages/createOffer/CreateOffer";
 import { ErrorBoundary, Layout } from "./components";
 import OffersList from "./pages/Offers";
 import CreateContact from "./pages/CreateContact";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import ValidatedOffer from "./pages/ValidatedOffer/ValidatedOffer";
+import DeletedOffer from "./pages/DeletedOffer/DeletedOffer";
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
             <Route path="/offers" element={<OffersList />} />
             <Route path="/createOffer" element={<CreateOffer />} />
             <Route path="/contact/:offerId" element={<CreateContact />} />
+            <Route path="/validated" element={<ValidatedOffer />} />
+            <Route path="/deleted" element={<DeletedOffer />} />
+            <Route path='*' element={<PageNotFound />}/>
           </Routes>
         </Layout>
       </Router>
