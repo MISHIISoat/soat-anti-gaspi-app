@@ -1,4 +1,4 @@
 {
-    "API_URL": "https://app-soat-bc22-dev-fr.azurewebsites.net/api",
-    "APP_URL": "TODO"
+    "API_URL": "http://app-soat-bc22-meb-dev-fr.azurewebsites.net/api",
+    "APP_URL": "http://4.233.72.40:3000/"
 }
